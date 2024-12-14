@@ -1,8 +1,8 @@
 const API_KEY = 'd44a1d57339e7abe5f0bb34b0dd5f4c7';
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
-const cityInput = document.getElementById('city-input');
-const searchBtn = document.getElementById('search-btn');
+const cityInput = document.getElementById('city_input');
+const searchBtn = document.getElementById('search_button');
 const cityName = document.getElementById('city-name');
 const weatherIcon = document.getElementById('weather-icon');
 const temperature = document.getElementById('temperature');
@@ -35,10 +35,6 @@ async function getWeather() {
     } catch (error) {
         console.error('Ошибка:', error);
         cityName.textContent = 'Ошибка при получении данных';
-        weatherIcon.src = '';
-        temperature.textContent = '';
-        description.textContent = '';
-        humidity.textContent = '';
-        windSpeed.textContent = '';
+
     }
 }
