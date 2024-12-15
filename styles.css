@@ -37,13 +37,12 @@ header {
 }
 
 #city_input {
-    width: 150x;
+    width: 150px;
     padding: 0.5rem;
     font-size: 1rem;
     border: 2px solid #20b2aa;
     border-radius: 5px;
     margin-right: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease;
 }
 
@@ -74,24 +73,33 @@ header {
     padding: 10px;
     display: inline-block;
     margin-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: gray 1px 1px 1px 1px;
 }
 
 .container {
-    max-width: 600px;
-    margin: 2rem auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 13.5vh;
     padding: 2rem;
     border-radius: 10px;
+    display: flex;
+    max-width: 500px;
 }
 
 .weather-info {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #city-name {
-    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
     color: #0083b0;
-    margin-bottom: 1rem;
+    flex-direction: row;
 }
 
 .weather-details {
@@ -108,6 +116,7 @@ header {
 }
 
 #temperature {
+    display: flex;
     font-size: 2.5rem;
     font-weight: bold;
 }

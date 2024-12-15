@@ -1,5 +1,5 @@
-const API_KEY = 'd44a1d57339e7abe5f0bb34b0dd5f4c7';
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const API_KEY = 'd44a1d57339e7abe5f0bb34b0dd5f4c7';
 
 const cityInput = document.getElementById('city_input');
 const searchBtn = document.getElementById('search_button');
@@ -9,18 +9,7 @@ const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
 const humidity = document.getElementById('humidity');
 const windSpeed = document.getElementById('wind-speed');
-const currentTime = document.getElementById('current-time');
 
-// Функция для получения и отображения текущего времени
-function updateTime() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    currentTime.textContent = `Текущее время: ${hours}:${minutes}:${seconds}`;
-}
-
-// Функция для получения данных о погоде
 async function getWeather() {
     const city = cityInput.value;
     if (!city) return;
@@ -29,7 +18,7 @@ async function getWeather() {
         const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric&lang=ru`);
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`Ошибка HTTP! Статус: ${response.status}, Текст: ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -37,21 +26,14 @@ async function getWeather() {
 
         cityName.textContent = data.name;
         weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-        temperature.textContent = `${Math.round(data.main.temp)}°C`;
+        temperature.textContent = `${Math.round(data.main.temp)}°C `;
         description.textContent = data.weather[0].description;
-        humidity.textContent = `Влажность: ${data.main.humidity}%`;
-        windSpeed.textContent = `Скорость ветра: ${data.wind.speed} м/с`;
+        humidity.textContent = `Влажность: ${data.main.humidity}% `;
+        windSpeed.textContent = `Скорость ветра: ${data.wind.speed} м/с `;
+        document.getElementById('weather-icon').style.display = 'block';
     } catch (error) {
         console.error('Ошибка:', error);
         cityName.textContent = 'Ошибка при получении данных';
     }
 }
-
-// Обработчик кнопки поиска
 searchBtn.addEventListener('click', getWeather);
-
-// Обновление текущего времени каждую секунду
-setInterval(updateTime, 1000);
-
-// Отображение времени при загрузке страницы
-updateTime();
