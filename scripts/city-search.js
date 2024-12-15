@@ -1,5 +1,5 @@
-const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
-const API_KEY = 'd44a1d57339e7abe5f0bb34b0dd5f4c7';
+import {API_URL} from "../API-KEY/api.js";
+import {API_KEY} from "../API-KEY/api.js";
 
 const cityInput = document.getElementById('city_input');
 const searchBtn = document.getElementById('search_button');
