@@ -29,13 +29,13 @@ async function getWeather(city) {
         location.textContent = `${data.sys.country}, ${data.name}`;
         weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
-        humidity.textContent = `humidity: ${data.main.humidity}%`;
-        windSpeed.textContent = `wind speed: ${Math.round(data.wind.speed)} m/s`;
+        humidity.textContent = `humidity:${data.main.humidity}%`;
+        windSpeed.textContent = `wind speed:${Math.round(data.wind.speed)} m/s`;
         document.getElementById('weather-icon').style.display = 'block';
         document.getElementById('container').style.display = 'block';
-        visibility.textContent = `visibility: ${data.visibility}`;
-        pressure.textContent = `pressure: ${data.main.pressure}`;
-        info.textContent = `Feels like: ${Math.floor(data.main.feels_like)}°C, ${data.weather[0].main}`;
+        visibility.textContent = `visibility:${Math.round((data.visibility)/1000)}.00 km`;
+        pressure.textContent = `pressure:${data.main.pressure}hPa`;
+        info.textContent = `Feels like:${Math.floor(data.main.feels_like)}°C, ${data.weather[0].main}`;
 
         updateMap(data.coord.lat, data.coord.lon);
         document.getElementById('map').style.display = 'block';
