@@ -1,165 +1,130 @@
 @import "popular-city.css";
+html, body {
+    height: 100%;
+}
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    color: #333;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
 }
 
 header {
+    font-size: 1.5rem;
     display: flex;
-    padding: 1rem 2rem;
-    background-color: #48484a;
-    color: white;
+    height: 15vh;
+    width: 100%;
+    align-items: center;
     justify-content: space-between;
 }
 
-#header_text {
-    padding-left: 100px;
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-
-#photo {
-    height: 50px;
+#logo {
+    width: 15vh;
+    height: 10vh;
 }
 
 #current-time {
-    font-size: 1.2em;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 10px;
-    display: inline-block;
-    margin-top: 10px;
-    box-shadow: gray 1px 1px 1px 1px;
+    color: black;
 }
 
-.container {
-    margin-left: 50px;
+#search-bar {
     display: flex;
-    width: 400px;
-    color: #48484a;
-
-}
-
-#description-weather{
-    margin-left: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-}
-#wind-speed{
-    width: 50%;
-}
-#pressure{
-    width: 50%;
-}
-#visibility{
-    width: 50%;
-}
-#humidity{
-    width: 50%;
-}
-
-
-
-#top {
-    background-color: #f2f2f2;
-    height: 80px;
+    height: 20vh;
     width: 100%;
-    display: flex;
-border: 1px black solid;
-
-}
-
-#info{
-
-}
-
-#location-info{
-    font-size: 2rem;
-}
-#weather{
-    display: flex;
-    flex-direction: row;
-    font-size: 1.5rem;
-    align-items: center;
-}
-
-
-#search {
-    display: flex;
-    color: #48484a;
-    font-size: 14px;
-    width: 100%;
-    border-radius: 4pt 0 0 4pt;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: #484848;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#search {
+    border-radius: 5px;
 }
 
-#city_input {
-    height: 40px;
-    width: 300px;
-    padding: 5px;
+.city_input, .Search-button {
+    border: 0;
+    border-radius: 10px;
+    padding: 1vh;
+    margin: 0;
+}
+
+section {
+    height: 900px;
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 900px;
+    padding-top: 24pt;
+    padding-bottom: 24pt;
+}
+.Weather-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+}
+#container {
+    display: flex;
+    width: 30%;
+    height: auto;
+    max-height: 80vh;
+    flex-direction: column;
+}
+
+#map {
+    display: flex;
+    width: 60%;
+    height: auto;
+    max-height: 80vh;
+}
+
+#location-info {
+    width: 100%;
+    height: auto;
+    font-size: 1.5rem;
+}
+
+#weather {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    font-size: 2rem;
+}
+
+#info {
+    display: flex;
+    height: auto;
+    width: 100%;
     font-size: 1rem;
 }
 
-#Search-button {
-    cursor: pointer;
-    height: 40px;
-    width: 100px;
-    background-color: #48484a;
-    border-color: #48484a;
-    color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-#Search-button:active{
-    background-color: black;
-    transition: 0.4s;
-}
-
-
-#map {
-    max-height: 300px;
-    max-width: 600px;
-    width: 600px;
-    height: 300px;
-    display: flex;
-
-}
-#test {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+#description-weather {
+    padding-left: 9px;
+    height: auto;
+    display: grid;
     width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
 }
 
-
-#map {
-    flex: 2;
-    height: 400px;
+#wind-speed {
+    display: flex;
+    flex-wrap: nowrap;
 }
-
 
 #hourly-weather {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 20px;
-}
+    max-height: 20vh;
 
+}
 .hour {
     background-color: #f2f2f2;
     border: 1px solid #ccc;
@@ -176,11 +141,145 @@ border: 1px black solid;
     height: 50px;
 }
 
-footer {
-    font-size: 1.5rem;
+#astana-temp, #london-temp, #moscow-temp, #tokyo-temp {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #deb887;
 }
 
+footer {
+    display: flex;
+    background-color: #484848;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+@media (max-width: 768px) {
+    #current-time{
+        display: none;
+    }
+    header {
+        display: flex;
+        font-size: 1rem;
+    justify-content: flex-start;
+    }
+
+    #logo {
+        width: 30%;
+        height: auto;
+    }
+
+    #search-bar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #search {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .city_input, .Search-button {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .Weather-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container, #map {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #hourly-weather {
+        display: none;
+    }
+
+    .hour {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    #Moscow, #Tokyo, #London, #Astana {
+        max-width: 90%;
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    * {
+        font-size: 1.1rem;
+    }
+
+    .current-time {
+        display: none;
+    }
+
+    header {
+        justify-content: flex-start;
+        flex-direction: row;
+        align-items: center;
+
+    }
+
+    #logo {
+        width: 30%;
+        height: auto;
+    }
+
+    #search-bar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #search {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .city_input, .Search-button {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .Weather-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container, #map {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #hourly-weather {
+        border: 1px black solid;
+        flex-direction: column;
+        display: none;
+    }
+
+    .hour {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    #Moscow, #Tokyo, #London, #Astana {
+        max-width: 90%;
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}

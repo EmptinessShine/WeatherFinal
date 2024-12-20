@@ -7,15 +7,13 @@ const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
 const humidity = document.getElementById('humidity');
 const windSpeed = document.getElementById('wind-speed');
-const feelslike = document.getElementById('feels-like');
 const location = document.getElementById('location-info');
 const visibility = document.getElementById('visibility');
 const pressure = document.getElementById('pressure');
 const info = document.getElementById('info');
 const searchbutton = document.getElementById('Search-button');
 
-async function getWeather() {
-    const city = cityInput.value;
+async function getWeather(city) {
     if (!city) return;
 
     try {
@@ -28,17 +26,16 @@ async function getWeather() {
         const data = await response.json();
         console.log('API Response:', data);
 
-        location.textContent = `${data.sys.country},${data.name}`;
+        location.textContent = `${data.sys.country}, ${data.name}`;
         weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         humidity.textContent = `humidity: ${data.main.humidity}%`;
-        windSpeed.textContent = `wind speed: ${data.wind.speed} m/s`;
-        feelslike.textContent = `feels like: ${Math.floor(data.main.feels_like)}°C`;
+        windSpeed.textContent = `wind speed: ${Math.round(data.wind.speed)} m/s`;
         document.getElementById('weather-icon').style.display = 'block';
         document.getElementById('container').style.display = 'block';
         visibility.textContent = `visibility: ${data.visibility}`;
         pressure.textContent = `pressure: ${data.main.pressure}`;
-        info.textContent = `${data.weather[0].main}, ${data.weather[0].description}`;
+        info.textContent = `Feels like: ${Math.floor(data.main.feels_like)}°C, ${data.weather[0].main}`;
 
         updateMap(data.coord.lat, data.coord.lon);
         document.getElementById('map').style.display = 'block';
@@ -85,11 +82,13 @@ async function getHourlyWeather(lat, lon) {
     }
 }
 
-
-searchbutton.addEventListener('click', getWeather);
+searchbutton.addEventListener('click', () => getWeather(cityInput.value));
 cityInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        getWeather();
+        getWeather(cityInput.value);
     }
 });
-window.addEventListener('load', initMap);
+window.addEventListener('load', () => {
+    initMap();
+    getWeather('Almaty');
+});

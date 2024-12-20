@@ -10,34 +10,34 @@
 <body>
 
 <header>
-    <img src="photo/png-clipart-weather-forecasting-computer-icons-cloudy-text-logo-removebg-preview(1).png" id="photo"
+    <img src="photo/png-clipart-weather-forecasting-computer-icons-cloudy-text-logo-removebg-preview(1).png" id="logo"
          alt="">
     <h1 id="header_text">Weather</h1>
-    <div id="current-time" style="margin-top: 10px; font-weight: bold;"></div>
+    <div id="current-time" class="current-time"></div>
 </header>
 
-<div id="top">
+<div id="search-bar">
     <div id="search">
         <label for="city_input">
-            <input type="text" id="city_input" placeholder="Поиск">
+            <input type="text" class="city_input" placeholder="Введите город" id="city_input">
         </label>
-        <button value="Search" id="Search-button">
+        <button value="Search" class="Search-button" id="Search-button">
             Поиск
         </button>
     </div>
 </div>
-<main>
-    <div id="test">
-        <div class="container" style="display: none" id="container">
+
+<section>
+    <div class="Weather-info">
+        <div class="container" id="container">
             <div id="location-info"></div>
             <div id="weather">
                 <img id="weather-icon" src="" alt="" style="display: none">
                 <p id="temperature"></p>
             </div>
             <div id="info">
-
+                <p id="feels-like"></p>
             </div>
-            <p id="feels-like"></p>
             <div id="description-weather">
                 <p id="description"></p>
                 <p class="additional-info">
@@ -46,67 +46,54 @@
                 <p id="humidity"></p>
                 <p id="visibility"></p>
             </div>
-
         </div>
-        <div id="map" style="width: 100%; height: 400px; display: none"></div>
+        <div id="map"></div>
     </div>
-
     <div id="hourly-weather"></div>
-    <div id="line"></div>
+</section>
 
 
-    <div class="popular-city">
-        <div id="London">
-            <h2 id="london-name"></h2>
-            <div class="london-weather-info">
-                <div id="london-icon">
-                    <img id="london-weather-icon" src="" alt="">
-                    <div id="london-desc">
-                        <p id="london-temperature"></p>
-                        <p id="london-description"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="Moscow">
-            <h2 id="moscow-name"></h2>
-            <div class="moscow-weather-info">
-                <div id="moscow-icon">
-                    <img id="moscow-weather-icon" src="" alt="">
-                    <div id="moscow-desc">
-                        <p id="moscow-temperature"></p>
-                        <p id="moscow-description"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="Tokyo">
-            <h2 id="tokyo-name"></h2>
-            <div class="tokyo-weather-info">
-                <div id="tokyo-icon">
-                    <img id="tokyo-weather-icon" src="" alt="">
-                    <div id="tokyo-desc">
-                        <p id="tokyo-temperature"></p>
-                        <p id="tokyo-description"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="Astana">
-            <h2 id="astana-name"></h2>
-            <div class="astana-weather-info">
-                <div id="astana-icon">
-                    <img id="astana-weather-icon" src="" alt="">
-                    <div id="astana-desc">
-                        <p id="astana-temperature"></p>
-                        <p id="astana-description"></p>
-                    </div>
-                </div>
+<div class="popular-city">
+    <div id="London">
+        <h2 id="london-name"></h2>
+        <div class="london-weather-info">
+            <div id="london-temp">
+                <img id="london-weather-icon" src="" alt="">
+                <p id="london-temperature"></p>
             </div>
         </div>
     </div>
-</main>
+
+    <div id="Moscow">
+        <h2 id="moscow-name"></h2>
+        <div class="moscow-weather-info">
+            <div id="moscow-temp">
+                <img id="moscow-weather-icon" src="" alt="">
+                <p id="moscow-temperature"></p>
+            </div>
+        </div>
+    </div>
+    <div id="Tokyo">
+        <h2 id="tokyo-name"></h2>
+        <div class="tokyo-weather-info">
+            <div id="tokyo-temp">
+                <img id="tokyo-weather-icon" src="" alt="">
+                <p id="tokyo-temperature"></p>
+            </div>
+        </div>
+    </div>
+    <div id="Astana">
+        <h2 id="astana-name"></h2>
+        <div class="astana-weather-info">
+            <div id="astana-temp">
+                <img id="astana-weather-icon" src="" alt="">
+                <p id="astana-temperature"></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <footer>
     All rights reserved
