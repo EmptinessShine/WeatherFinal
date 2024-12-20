@@ -15,7 +15,7 @@ async function getWeather(city, elements) {
     const description = document.getElementById(elements.description);
 
     try {
-        const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric&lang=ru`);
+        const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric&lang=en`);
 
         const data = await response.json();
         console.log('API Response:', data);
@@ -30,4 +30,3 @@ async function getWeather(city, elements) {
 }
 
 cities.forEach(city => getWeather(city.name, city.elements));
-

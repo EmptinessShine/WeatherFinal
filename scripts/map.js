@@ -9,7 +9,7 @@ export function initMap() {
     script.onload = () => {
         ymaps.ready(() => {
             map = new ymaps.Map('map', {
-                center: [55.76, 37.64], // Координаты центра карты (Москва)
+                center: [43.24, 76.94],
                 zoom: 10
             });
         });

@@ -1,6 +1,6 @@
 const currentTime = document.getElementById('current-time');
 
-// Функция для получения и отображения текущего времени
+
 function updateTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
