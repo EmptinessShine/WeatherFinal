@@ -1,13 +1,18 @@
 @import "popular-city.css";
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 html, body {
     height: 100%;
+   
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Titillium Web", serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
 
 header {
     font-size: 1.5rem;
@@ -24,7 +29,7 @@ header {
 }
 
 #current-time {
-    color: black;
+    color: black;   
 }
 
 #search-bar {
@@ -44,9 +49,11 @@ body {
 }
 
 .city_input, .Search-button {
-    border: 0;
+    border: 20px;
     border-radius: 10px;
     padding: 1vh;
+    width: auto;
+    height: auto;
     margin: 0;
 }
 
