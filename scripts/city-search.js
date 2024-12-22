@@ -20,7 +20,7 @@ async function getWeather(city) {
         const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric&lang=en`);
 
         if (!response.ok) {
-            throw new Error(`Ошибка HTTP! Статус: ${response.status}, Текст: ${response.statusText}`);
+            throw new Error(`Error HTTP! Status: ${response.status}, Text: ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -42,8 +42,8 @@ async function getWeather(city) {
 
         await getHourlyWeather(data.coord.lat, data.coord.lon);
     } catch (error) {
-        console.error('Ошибка:', error);
-        location.textContent = 'Ошибка при получении данных';
+        console.error('Error:', error);
+        location.textContent = 'Error when receiving data';
     }
 }
 
@@ -52,7 +52,7 @@ async function getHourlyWeather(lat, lon) {
         const response = await fetch(`${HOURLY_API_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=en`);
 
         if (!response.ok) {
-            throw new Error(`Ошибка HTTP! Статус: ${response.status}, Текст: ${response.statusText}`);
+            throw new Error(`Error HTTP! Status: ${response.status}, Text: ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -78,7 +78,7 @@ async function getHourlyWeather(lat, lon) {
             hourlyContainer.appendChild(hourElement);
         });
     } catch (error) {
-        console.error('Ошибка при получении почасовой погоды:', error);
+        console.error('Error when getting the hourly weather:', error);
     }
 }
 

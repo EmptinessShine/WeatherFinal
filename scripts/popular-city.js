@@ -21,8 +21,8 @@ async function getWeather(city, elements) {
         weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
         temperature.textContent = `${Math.round(data.main.temp)}°C `;
     } catch (error) {
-        console.error('Ошибка:', error);
-        cityName.textContent = 'Ошибка при получении данных';
+        console.error('Error:', error);
+        cityName.textContent = 'Error when receiving data';
     }
 }
 
