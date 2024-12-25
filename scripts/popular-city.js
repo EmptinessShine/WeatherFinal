@@ -14,7 +14,6 @@ async function getWeather(city, elements) {
 
     try {
         const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric&lang=en`);
-
         const data = await response.json();
         console.log('API Response:', data);
         cityName.textContent = data.name;

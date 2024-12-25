@@ -8,10 +8,7 @@ function updateTime() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     currentTime.textContent = `Time: ${hours}:${minutes}:${seconds}`;
 }
-
-
-// Обновление текущего времени каждую секунду
+l
 setInterval(updateTime, 1000);
 
-// Отображение времени при загрузке страницы
 updateTime();

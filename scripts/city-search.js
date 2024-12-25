@@ -59,8 +59,7 @@ async function getHourlyWeather(lat, lon) {
         console.log('Hourly API Response:', data);
 
         const hourlyContainer = document.getElementById('hourly-weather');
-        hourlyContainer.innerHTML = ''; // Очистить контейнер перед добавлением новых данных
-
+        hourlyContainer.innerHTML = '';
         data.list.slice(0, 12).forEach(hour => {
             const hourElement = document.createElement('div');
             hourElement.className = 'hour';
